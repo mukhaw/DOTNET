@@ -1,0 +1,38 @@
+@model IEnumerable<Owner>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="d-flex flex-row justify-content-between mb-4">
+  <span class="d-inline"><h2>Note List</h2></span>
+  @Html.ActionLink("Добавить владельца", "Add", "Owner", "",new { @class="btn btn-primary", role="button"})
+</div>
+
+
+<div class="container">
+    
+    
+   <table class="table table-hover">
+     <thead>
+       <tr>
+         <th scope="col">#</th>
+         <th scope="col">Initials</th>
+         <th scope="col">Collection</th>
+         
+       </tr>
+     </thead>
+     <tbody>
+        @foreach (var forecast in this.Model)
+         {
+          <tr>
+            <th scope="row">@forecast.Id</th>
+            <td>@forecast.Initials</td>
+            <td>@forecast.Collection</td>
+            
+          </tr>
+         }
+     </tbody>
+   </table>
+</div>

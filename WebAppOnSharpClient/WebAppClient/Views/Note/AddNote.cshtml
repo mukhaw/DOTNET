@@ -1,0 +1,38 @@
+@model HelpObjects
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>New Note</h2>
+
+<form method="post" action="/Note/Put">
+    <div class="form-group">
+        <label for="PatientSelect">Byer <small class="text-danger"> (requied)</small></label>
+        <select class="form-control" id="ByerSelect" name="ByerId" required>
+            @foreach (var byer in this.Model.Byers)
+            {
+                <option value="@byer.Id">@byer.FirstName @byer.LastName</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="OwnerSelect">Owner <small class="text-danger"> (requied)</small></label>
+        <select class="form-control" id="OwnerSelect" name="OwnerId" required>
+            @foreach (var owner in this.Model.Owners)
+            {
+                <option value="@owner.Id">@owner.Initials</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="PictureSelect">Picture<small class="text-danger"> (requied)</small></label>
+        <select class="form-control" id="PictureSelect" name="PictureId" required>
+            @foreach (var picture in this.Model.Picture)
+            {
+                <option value="@picture.Id">@picture.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

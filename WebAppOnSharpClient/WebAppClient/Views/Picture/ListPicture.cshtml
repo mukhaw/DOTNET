@@ -1,0 +1,36 @@
+@model IEnumerable<Picture>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="d-flex flex-row justify-content-between mb-4">
+  <span class="d-inline"><h2>All Pictures</h2></span>
+    @Html.ActionLink("Add Picture", "AddPicture", "Picture", "",new { @class="btn btn-primary", role="button"})
+</div>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+        </tr>
+        </thead>
+        <tbody>
+    
+        @foreach (var picture in this.Model)
+        {
+        <a href="/Picture/InfoPicture/@picture.Id">
+            <tr onclick="location.href ='/Picture/InfoPicture/@picture.Id'">
+
+                <th scope="row">@picture.Id</th>
+                <td>@picture.Name</td>
+
+            </tr>
+        </a>
+        }
+        </tbody>
+    </table>
+</div>
