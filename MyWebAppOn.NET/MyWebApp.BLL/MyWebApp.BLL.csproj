@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="EntityFramework" Version="6.4.4" />
+        <PackageReference Include="Ninject" Version="4.0.0-beta-0134" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\MyWebApp.DAL\MyWebApp.DAL.csproj" />
+        <ProjectReference Include="..\MyWebApp.Domain\MyWebApp.Domain.csproj" />
+    </ItemGroup>
+    
+</Project>
